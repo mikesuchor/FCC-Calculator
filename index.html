@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport"'content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>Build a JavaScript Calculator</title>
+  <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class='calculator'>
+    <p id='title'>Calculator</p>
+    <p id='screen'>0</p>
+    <button id='clearbtn' class='operators' onclick='clearScreen()'>C</button>
+    <button id='reverse' class='operators' onclick='reverse()'>+/-</button>
+    <button id='dividebtn' class='operators' value='/' onclick='addValue(this)'>&#247</button>
+    <button id='multiplybtn' class='operators' value='*'  onclick='addValue(this)'>x</button>
+    <button id='7btn' class='numbers' value='7' onclick='addValue(this)'>7</button>
+    <button id='8btn' class='numbers' value='8' onclick='addValue(this)'>8</button>
+    <button id='9btn' class='numbers' value='9' onclick='addValue(this)'>9</button>
+    <button id='minusbtn' class='operators' value='-' onclick='addValue(this)'>-</button>
+    <button id='4btn' class='numbers' value='4' onclick='addValue(this)'>4</button>
+    <button id='5btn' class='numbers' value='5' onclick='addValue(this)'>5</button>
+    <button id='6btn' class='numbers' value='6' onclick='addValue(this)'>6</button>
+    <button id='plusbtn' class='operators' value='+' onclick='addValue(this)'>+</button>
+    <button id='1btn' class='numbers' value='1' onclick='addValue(this)'>1</button>
+    <button id='2btn' class='numbers' value='2' onclick='addValue(this)'>2</button>
+    <button id='3btn' class='numbers' value='3' onclick='addValue(this)'>3</button>
+    <button id='equalsbtn' class='operators' value='=' onclick='equals()'>=</button>
+    <button id='0btn' class='numbers' value='0' onclick='addValue(this)'>0</button>
+    <button id='decimalbtn' class='numbers' value='.' onclick='addValue(this)'>.</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
