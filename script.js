@@ -30,36 +30,36 @@ Wish List:
 */
 
 /* Variables to store the calculator screen output and stored output as strings */
-var screenOutput = "";
-var storedOutput = "";
+var screenOutput = '';
+var storedOutput = '';
 
 /* C button sets the calculator screen values to 0 */
 function clearScreen() {
-  screenOutput = "";
-  document.getElementById("output").innerHTML = 0;
-  document.getElementById("stored").innerHTML = 0;
+  screenOutput = '';
+  document.getElementById('output').innerHTML = 0;
+  document.getElementById('stored').innerHTML = 0;
 }
 
 /* +/- button adds *(-1) to the stored output string to reverse the number from positive to negative */
 //function reverse() {
-//  screenOutput += "*(-1)";
+//  screenOutput += '*(-1)';
 //}
 
 /* All other buttons pass the button as a parameter and add the button's value to the stored output string. If the multiply button is pressed pass an x instead of * to the calculator screen, otherwise pass the pressed button to the screen.  */
 function addValue(btnValue) {
   screenOutput += btnValue.value;
-  document.getElementById("stored").innerHTML = screenOutput;
+  document.getElementById('stored').innerHTML = screenOutput;
 }
 
 function addOperator(btnValue) {
   screenOutput += btnValue.value;
-  document.getElementById("stored").innerHTML = screenOutput;
+  document.getElementById('stored').innerHTML = screenOutput;
 }
 
 /* Equals button checks if the evaluated result of the stored output string is greater than 10, and if it is displays an error on the calculator screen, otherwise display the evaluated output on the calculator screen */
 function equals() {
-  screenOutput = screenOutput.replace(/x/g, "*");
+  screenOutput = screenOutput.replace(/x/g, '*');
   screenOutput = eval(screenOutput);
-  document.getElementById("output").innerHTML = screenOutput;
-  document.getElementById("stored").innerHTML = screenOutput;
+  document.getElementById('output').innerHTML = screenOutput;
+  document.getElementById('stored').innerHTML = screenOutput;
 }
