@@ -30,7 +30,8 @@ Wish List:
 */
 
 /* Variables to store the calculator screen output and stored output as strings */
-const maxDigits = 11;
+const outputMaxDigits = 11;
+const storedMaxDigits = 15;
 var screenOutput = '';
 var storedOutput = '';
 
@@ -61,7 +62,7 @@ function addOperator(btnValue) {
 function equals() {
   screenOutput = screenOutput.replace(/x/g, '*');
   screenOutput = eval(screenOutput);
-  if(screenOutput.toString().length <= maxDigits) {
+  if(screenOutput.toString().length <= outputMaxDigits) {
     document.getElementById('output').innerHTML = screenOutput;
   }
   else {
