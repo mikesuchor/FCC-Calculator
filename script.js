@@ -42,26 +42,30 @@ function clearScreen() {
   document.getElementById('stored').innerHTML = 0;
 }
 
+/* Toggled operator buttons between true and false */
+function toggleOperatorButtons(state) {
+  var operators = document.getElementsByClassName('operators');
+  for (var button of operators) {
+    button.disabled = state;
+  }
+}
+
 /* +/- button adds *(-1) to the stored output string to reverse the number from positive to negative */
 //function reverse() {
 //  screenOutput += '*(-1)';
 //}
 
-/* All other buttons pass the button as a parameter and add the button's value to the stored output string. If the multiply button is pressed pass an x instead of * to the calculator screen, otherwise pass the pressed button to the screen.  */
+/* Value buttons pass the value as a parameter and add the button's value to the stored output string.  */
 function addValue(btnValue) {
   screenOutput += btnValue.value;
-  Array.from(document.getElementsByClassName('operators')).forEach(function(element){
-    element.disabled = false;
-  });
+  toggleOperatorButtons(false);
   document.getElementById('stored').innerHTML = screenOutput;
 }
 
+/* Operator buttons pass the value as a parameter and add the button's value to the store output string. If the multiply button is pressed pass an x instead of * to the calculator screen, otherwise pass the pressed button to the screen. */
 function addOperator(btnValue) {
   screenOutput += btnValue.value;
-  document.getElementById('dividebtn').disabled = true;
-  Array.from(document.getElementsByClassName('operators')).forEach(function(element){
-    element.disabled = true;
-  });
+  toggleOperatorButtons(true);
   document.getElementById('stored').innerHTML = screenOutput;
 }
 
