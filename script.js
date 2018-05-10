@@ -50,11 +50,18 @@ function clearScreen() {
 /* All other buttons pass the button as a parameter and add the button's value to the stored output string. If the multiply button is pressed pass an x instead of * to the calculator screen, otherwise pass the pressed button to the screen.  */
 function addValue(btnValue) {
   screenOutput += btnValue.value;
+  Array.from(document.getElementsByClassName('operators')).forEach(function(element){
+    element.disabled = false;
+  });
   document.getElementById('stored').innerHTML = screenOutput;
 }
 
 function addOperator(btnValue) {
   screenOutput += btnValue.value;
+  document.getElementById('dividebtn').disabled = true;
+  Array.from(document.getElementsByClassName('operators')).forEach(function(element){
+    element.disabled = true;
+  });
   document.getElementById('stored').innerHTML = screenOutput;
 }
 
