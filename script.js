@@ -30,6 +30,7 @@ Wish List:
 */
 
 /* Variables to store the calculator screen output and stored output as strings */
+const maxDigits = 11;
 var screenOutput = '';
 var storedOutput = '';
 
@@ -60,6 +61,11 @@ function addOperator(btnValue) {
 function equals() {
   screenOutput = screenOutput.replace(/x/g, '*');
   screenOutput = eval(screenOutput);
-  document.getElementById('output').innerHTML = screenOutput;
+  if(screenOutput.toString().length <= maxDigits) {
+    document.getElementById('output').innerHTML = screenOutput;
+  }
+  else {
+    document.getElementById('output').innerHTML = screenOutput.toString().substr(0,11);
+  }
   document.getElementById('stored').innerHTML = screenOutput;
 }
