@@ -58,7 +58,7 @@ button:active {
   box-shadow: none;
 }
 
-.operators {
+.operators, .operations {
   border-color: #666;
   background-color: #666;
   color: #fff;

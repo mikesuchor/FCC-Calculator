@@ -30,7 +30,8 @@ Wish List:
 */
 
 /* Variables to store the calculator screen output and stored output as strings */
-const maxDigits = 11;
+const outputMaxDigits = 11;
+const storedMaxDigits = 15;
 var screenOutput = '';
 var storedOutput = '';
 
@@ -41,19 +42,30 @@ function clearScreen() {
   document.getElementById('stored').innerHTML = 0;
 }
 
+/* Toggled operator buttons between true and false */
+function toggleOperatorButtons(state) {
+  var operators = document.getElementsByClassName('operators');
+  for (var button of operators) {
+    button.disabled = state;
+  }
+}
+
 /* +/- button adds *(-1) to the stored output string to reverse the number from positive to negative */
 //function reverse() {
 //  screenOutput += '*(-1)';
 //}
 
-/* All other buttons pass the button as a parameter and add the button's value to the stored output string. If the multiply button is pressed pass an x instead of * to the calculator screen, otherwise pass the pressed button to the screen.  */
+/* Value buttons pass the value as a parameter and add the button's value to the stored output string.  */
 function addValue(btnValue) {
   screenOutput += btnValue.value;
+  toggleOperatorButtons(false);
   document.getElementById('stored').innerHTML = screenOutput;
 }
 
+/* Operator buttons pass the value as a parameter and add the button's value to the store output string. If the multiply button is pressed pass an x instead of * to the calculator screen, otherwise pass the pressed button to the screen. */
 function addOperator(btnValue) {
   screenOutput += btnValue.value;
+  toggleOperatorButtons(true);
   document.getElementById('stored').innerHTML = screenOutput;
 }
 
@@ -61,7 +73,7 @@ function addOperator(btnValue) {
 function equals() {
   screenOutput = screenOutput.replace(/x/g, '*');
   screenOutput = eval(screenOutput);
-  if(screenOutput.toString().length <= maxDigits) {
+  if(screenOutput.toString().length <= outputMaxDigits) {
     document.getElementById('output').innerHTML = screenOutput;
   }
   else {
